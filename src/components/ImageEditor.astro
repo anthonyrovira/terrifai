@@ -1,0 +1,208 @@
+---
+import colorPalette from "@utils/colors";
+---
+
+<!-- Enhance -->
+<label for="enhance" class="mb-6 inline-flex items-center cursor-pointer">
+  <input type="checkbox" id="enhance" name="enhance" value="" class="sr-only peer" />
+  <div
+    class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+  >
+  </div>
+  <span class="ms-3 text-sm font-medium text-halloween-gray dark:text-halloween-black">Enhance</span>
+</label>
+
+<!-- Recolor -->
+<div class="mb-6">
+  <h3 class="text-halloween-gray text-lg font-medium mb-2">
+    To recolor something in the image, first indicate the target and then the color (english only)
+  </h3>
+  <label for="recolor-target" class="block mb-2 text-sm font-medium text-halloween-gray dark:text-white">Target</label>
+  <input
+    type="text"
+    name="recolor-target"
+    id="recolor-target"
+    class="bg-gray-50 border border-gray-300 text-halloween-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+  />
+  <label for="recolor-color" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select a color</label>
+  <select
+    id="recolor-color"
+    name="recolor-color"
+    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+  >
+    {Object.entries(colorPalette).map(([color, value]) => <option value={color}>{value.label}</option>)}
+  </select>
+  <button id="recolor-button" class="bg-halloween-orange text-white px-4 py-2 rounded-md">Recolor</button>
+</div>
+
+<!-- Replace Background -->
+<div class="mb-6">
+  <h3 class="text-halloween-gray text-lg font-medium mb-2">
+    Replace the background of the image with an AI prompt (english only)
+  </h3>
+  <label for="replace-background" class="block mb-2 text-sm font-medium text-halloween-gray dark:text-white">Prompt</label>
+  <input
+    type="text"
+    name="replace-background"
+    id="replace-background"
+    class="bg-gray-50 border border-gray-300 text-halloween-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+  />
+  <button id="replace-background-button" class="bg-halloween-orange text-white px-4 py-2 rounded-md">Replace</button>
+</div>
+
+<!-- Improve -->
+<label for="improve" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Improve</label>
+<input
+  id="improve"
+  type="range"
+  name="improve"
+  value="0"
+  class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+/>
+
+<!-- Replace Element -->
+<h3 class="text-halloween-gray text-lg font-medium mb-2">
+  To replace an element in the image, first indicate the target and then by what you want to replace it (english only)
+</h3>
+<label for="replace-element-target" class="block mb-2 text-sm font-medium text-halloween-gray dark:text-white">Target</label>
+<input
+  type="text"
+  name="replace-element-target"
+  id="replace-element-target"
+  class="bg-gray-50 border border-gray-300 text-halloween-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+/>
+<label for="replace-element-replace" class="block mb-2 text-sm font-medium text-halloween-gray dark:text-white">Replace by</label>
+<input
+  type="text"
+  name="replace-element-replace"
+  id="replace-element-replace"
+  class="bg-gray-50 border border-gray-300 text-halloween-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+/>
+<button id="replace-element-button" class="bg-halloween-orange text-white px-4 py-2 rounded-md">Replace</button>
+
+<!-- Restore -->
+<label for="restore" class="block mb-6 items-center cursor-pointer">
+  <input type="checkbox" id="restore" name="restore" value="" class="sr-only peer" />
+  <div
+    class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+  >
+  </div>
+  <span class="ms-3 text-sm font-medium text-halloween-gray dark:text-halloween-black">Restore</span>
+</label>
+
+<!-- Angle -->
+<div class="mb-6">
+  <label for="angle" class="block mb-2 text-sm font-medium text-halloween-gray dark:text-white">Angle de rotation</label>
+  <input
+    type="number"
+    id="angle"
+    name="angle"
+    min="-360"
+    max="360"
+    class="bg-gray-50 border border-gray-300 text-halloween-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+  />
+</div>
+
+<!-- Background -->
+<div class="mb-6">
+  <label for="background" class="block mb-2 text-sm font-medium text-halloween-gray dark:text-white">Couleur de fond</label>
+  <input
+    type="text"
+    id="background"
+    name="background"
+    placeholder="blue, rgb:0000ff"
+    class="bg-gray-50 border border-gray-300 text-halloween-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+  />
+</div>
+
+<!-- Crop -->
+<div class="mb-6">
+  <label for="crop" class="block mb-2 text-sm font-medium text-halloween-gray dark:text-white">Type de recadrage</label>
+  <select
+    id="crop"
+    name="crop"
+    class="bg-gray-50 border border-gray-300 text-halloween-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+  >
+    <option value="limit">Limit</option>
+    <option value="fill">Fill</option>
+    <option value="crop">Crop</option>
+  </select>
+</div>
+
+<!-- Fill Background -->
+<label for="fillBackground" class="mb-6 inline-flex items-center cursor-pointer">
+  <input type="checkbox" id="fillBackground" name="fillBackground" class="sr-only peer" />
+  <div
+    class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+  >
+  </div>
+  <span class="ms-3 text-sm font-medium text-halloween-gray dark:text-halloween-black">Remplir l'arrière-plan</span>
+</label>
+
+<!-- Gravity -->
+<div class="mb-6">
+  <label for="gravity" class="block mb-2 text-sm font-medium text-halloween-gray dark:text-white">Gravité</label>
+  <select
+    id="gravity"
+    name="gravity"
+    class="bg-gray-50 border border-gray-300 text-halloween-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+  >
+    <option value="auto">Auto</option>
+    <option value="center">Center</option>
+    <option value="face">Face</option>
+    <option value="faces">Faces</option>
+    <option value="north">North</option>
+    <option value="south">South</option>
+    <option value="east">East</option>
+    <option value="west">West</option>
+  </select>
+</div>
+
+<!-- Remove -->
+<div class="mb-6">
+  <label for="remove" class="block mb-2 text-sm font-medium text-halloween-gray dark:text-white">Supprimer de l'image</label>
+  <input
+    type="text"
+    id="remove"
+    name="remove"
+    placeholder="apple, banana"
+    class="bg-gray-50 border border-gray-300 text-halloween-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+  />
+</div>
+
+<!-- Remove Background -->
+<label for="removeBackground" class="mb-6 inline-flex items-center cursor-pointer">
+  <input type="checkbox" id="removeBackground" name="removeBackground" class="sr-only peer" />
+  <div
+    class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+  >
+  </div>
+  <span class="ms-3 text-sm font-medium text-halloween-gray dark:text-halloween-black">Supprimer l'arrière-plan</span>
+</label>
+
+<!-- Zoom -->
+<div class="mb-6">
+  <label for="zoom" class="block mb-2 text-sm font-medium text-halloween-gray dark:text-white">Zoom</label>
+  <input
+    type="number"
+    id="zoom"
+    name="zoom"
+    min="0.1"
+    max="5"
+    step="0.1"
+    class="bg-gray-50 border border-gray-300 text-halloween-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+  />
+</div>
+
+<!-- Zoompan -->
+<label for="zoompan" class="mb-6 inline-flex items-center cursor-pointer">
+  <input type="checkbox" id="zoompan" name="zoompan" class="sr-only peer" />
+  <div
+    class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+  >
+  </div>
+  <span class="ms-3 text-sm font-medium text-halloween-gray dark:text-halloween-black">Zoompan</span>
+</label>
+
+<!-- Download -->
+<button id="download-button" name="download" class="mb-6 bg-halloween-orange text-white px-4 py-2 rounded-md">Download</button>
