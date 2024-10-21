@@ -1,0 +1,58 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { getCldImageUrl } from "astro-cloudinary/helpers";
+import LaboratoryIcon from "@icons/Laboratory.astro";
+import TabsMenu from "@components/TabsMenu.astro";
+import Download from "@icons/Download.astro";
+
+const { searchParams } = Astro.url;
+const id = searchParams.get("id");
+if (id == null) return Astro.redirect("/");
+
+const url = getCldImageUrl({ src: id });
+---
+
+<Layout title="AI Transformation Laboratory">
+  <section data-id={id} class="container mx-auto px-4 py-8">
+    <h1 class="flex items-center justify-center text-3xl md:text-4xl text-halloween-purple mb-8 text-center">
+      <span class="text-halloween-orange font-zombie tracking-wider"> Transformation Laboratory</span>
+      <LaboratoryIcon class="w-8 h-8 ml-2" />
+    </h1>
+    <TabsMenu />
+
+    <div class="my-4">
+      <div class="shadow-xl p-4 rounded-lg bg-halloween-dark">
+        <two-up class="mb-6 w-full h-auto rounded-lg">
+          <img id="original" src={url} alt="Original image" class="rounded-lg m-auto" />
+          <img id="preview" src={url} alt="Preview" class="rounded-lg m-auto" />
+        </two-up>
+      </div>
+
+      <!-- Download -->
+      <div class="flex items-center justify-center">
+        <button
+          id="download-button"
+          type="button"
+          name="download"
+          class="bg-halloween-orange text-white px-4 py-2 mt-4 flex items-center justify-center rounded-md hover:bg-halloween-purple transition-colors"
+        >
+          <Download class="w-5 h-5 mr-2" />
+          <span class="text-sm">Download</span>
+        </button>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  import { setupTabs } from "@scripts/tabs";
+  import { setupImageEditor } from "@scripts/imageEditor";
+
+  const section = document.querySelector("section");
+  const id = section?.getAttribute("data-id") ?? "";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    setupImageEditor(id || "");
+    setupTabs();
+  });
+</script>

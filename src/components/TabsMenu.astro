@@ -1,0 +1,158 @@
+---
+import RemoveBackgroundIcon from "@icons/RemoveBackground.astro";
+import ReplaceElementIcon from "@icons/ReplaceElement.astro";
+import RecolorIcon from "@icons/Recolor.astro";
+import RemoveElementIcon from "@icons/RemoveElement.astro";
+import colorPalette from "@utils/colors";
+
+const tabs = [
+  { id: "remove-background-tab", name: "Replace Background", icon: RemoveBackgroundIcon },
+  { id: "replace-element-tab", name: "Replace Element", icon: ReplaceElementIcon },
+  { id: "recolor-tab", name: "Recolor", icon: RecolorIcon },
+  { id: "remove-element-tab", name: "Remove Element", icon: RemoveElementIcon },
+];
+---
+
+<div class="bg-gray-800 rounded-lg shadow-md">
+  <ul class="flex flex-wrap text-sm" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
+    {
+      tabs.map((tab) => (
+        <li class="flex-1 text-gray-300 border-b-2 border-halloween-orange " role="presentation">
+          <button
+            class:list={[
+              "w-full py-3 px-2 transition-colors duration-200 ease-in-out flex flex-row items-center justify-center tab-button",
+              "text-gray-300 border-b-2 border-halloween-orange hover:text-gray-200 hover:border-halloween-orange",
+            ]}
+            id={`${tab.id}-tab`}
+            data-tabs-target={`#${tab.id}`}
+            type="button"
+            role="tab"
+            aria-controls={tab.id}
+            aria-selected="false"
+          >
+            <tab.icon class="w-6 h-6 mr-2 hidden md:block" />
+            <span class="text-base text-gray-300">{tab.name}</span>
+          </button>
+        </li>
+      ))
+    }
+  </ul>
+
+  <div id="tabContent" class="p-4">
+    <div
+      class="hidden p-4 rounded-lg bg-gray-700"
+      id="remove-background-tab"
+      role="tabpanel"
+      aria-labelledby="remove-background-tab"
+    >
+      <h3 class="text-gray-200 text-lg font-medium mb-4">Replace background</h3>
+      <div class="space-y-4">
+        <div>
+          <label for="replace-background" class="block mb-2 text-sm font-medium text-gray-300">Prompt</label>
+          <input
+            type="text"
+            name="replace-background"
+            id="replace-background"
+            class="bg-gray-600 border border-gray-500 text-gray-200 text-sm rounded-lg focus:ring-gray-400 focus:border-gray-400 block w-full p-2.5"
+          />
+        </div>
+        <button
+          type="button"
+          id="replace-background-button"
+          class="w-full bg-halloween-orange text-gray-200 px-4 py-2 rounded-md hover:bg-halloween-purple transition-colors"
+          >Replace</button
+        >
+      </div>
+    </div>
+
+    <div class="hidden p-4 rounded-lg bg-gray-700" id="replace-element-tab" role="tabpanel" aria-labelledby="replace-element-tab">
+      <h3 class="text-gray-200 text-lg font-medium mb-4">Replace element</h3>
+      <div class="space-y-4">
+        <div>
+          <label for="replace-element-target" class="block mb-2 text-sm font-medium text-gray-300">Target</label>
+          <input
+            type="text"
+            name="replace-element-target"
+            id="replace-element-target"
+            class="bg-gray-600 border border-gray-500 text-gray-200 text-sm rounded-lg focus:ring-gray-400 focus:border-gray-400 block w-full p-2.5"
+          />
+        </div>
+        <div>
+          <label for="replace-element-replace" class="block mb-2 text-sm font-medium text-gray-300">Replace with</label>
+          <input
+            type="text"
+            name="replace-element-replace"
+            id="replace-element-replace"
+            class="bg-gray-600 border border-gray-500 text-gray-200 text-sm rounded-lg focus:ring-gray-400 focus:border-gray-400 block w-full p-2.5"
+          />
+        </div>
+        <button
+          type="button"
+          id="replace-element-button"
+          class="w-full bg-halloween-orange text-gray-200 px-4 py-2 rounded-md hover:bg-halloween-purple transition-colors"
+          >Replace</button
+        >
+      </div>
+    </div>
+
+    <div class="hidden p-4 rounded-lg bg-gray-700" id="recolor-tab" role="tabpanel" aria-labelledby="recolor-tab">
+      <h3 class="text-gray-200 text-lg font-medium mb-4">Recolor element</h3>
+      <div class="space-y-4">
+        <div>
+          <label for="recolor-target" class="block mb-2 text-sm font-medium text-gray-300">Target</label>
+          <input
+            type="text"
+            name="recolor-target"
+            id="recolor-target"
+            class="bg-gray-600 border border-gray-500 text-gray-200 text-sm rounded-lg focus:ring-gray-400 focus:border-gray-400 block w-full p-2.5"
+          />
+        </div>
+        <div>
+          <label for="recolor-color" class="block mb-2 text-sm font-medium text-gray-300">Select a color</label>
+          <select
+            id="recolor-color"
+            name="recolor-color"
+            class="bg-gray-600 border border-gray-500 text-gray-200 text-sm rounded-lg focus:ring-gray-400 focus:border-gray-400 block w-full p-2.5"
+          >
+            {Object.entries(colorPalette).map(([color, value]) => <option value={color}>{value.label}</option>)}
+          </select>
+        </div>
+        <button
+          id="recolor-button"
+          class="w-full bg-halloween-orange text-gray-200 px-4 py-2 rounded-md hover:bg-halloween-purple transition-colors"
+          >Recolor</button
+        >
+      </div>
+    </div>
+
+    <div class="hidden p-4 rounded-lg bg-gray-700" id="remove-element-tab" role="tabpanel" aria-labelledby="remove-element-tab">
+      <h3 class="text-gray-200 text-lg font-medium mb-4">Remove element</h3>
+      <div class="space-y-4">
+        <div>
+          <label for="remove-target" class="block mb-2 text-sm font-medium text-gray-300">Target</label>
+          <input
+            type="text"
+            name="remove-target"
+            id="remove-target"
+            class="bg-gray-600 border border-gray-500 text-gray-200 text-sm rounded-lg focus:ring-gray-400 focus:border-gray-400 block w-full p-2.5"
+          />
+        </div>
+        <div class="flex items-center">
+          <input
+            type="checkbox"
+            id="remove-shadow"
+            name="remove-shadow"
+            class="w-4 h-4 text-gray-600 bg-gray-700 border-gray-500 rounded focus:ring-gray-600"
+          />
+          <label for="remove-shadow" class="ml-2 text-sm font-medium text-gray-300">Remove shadow</label>
+        </div>
+        <button
+          type="button"
+          id="remove-target-button"
+          class="w-full bg-halloween-orange text-gray-200 px-4 py-2 rounded-md hover:bg-halloween-purple transition-colors"
+          >Remove</button
+        >
+      </div>
+    </div>
+  </div>
+</div>

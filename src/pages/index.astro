@@ -7,29 +7,24 @@ import { getCollection } from "astro:content";
 const images = await getCollection("images");
 ---
 
-<Layout title="Halloween Gallery">
-  <main class="container mx-auto px-4 py-8">
-    <h1 class="text-4xl md:text-5xl font-bold text-halloween-orange mb-8 text-center">Halloween Gallery</h1>
-
-    <div class="mb-8 text-center">
+<Layout title="TerrifAI">
+  <div class="container mx-auto px-4 py-8">
+    <div class="mb-12 text-center">
       <CldUploadWidget uploadPreset="hysteria-preset">
         <button
           type="button"
-          class="bg-halloween-purple hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-lg"
+          class="bg-halloween-purple hover:saturate-150 text-white font-normal py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-md"
         >
           Upload your terrifying image
         </button>
       </CldUploadWidget>
     </div>
 
-    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
       {
         images.map((image: any) => (
           <li class="transform transition duration-300 hover:scale-105">
-            <a
-              href={`/picture?id=${image.data.public_id}`}
-              class="block bg-halloween-purple rounded-lg overflow-hidden shadow-xl"
-            >
+            <a href={`/laboratory?id=${image.data.public_id}`} class="block overflow-hidden rounded-lg shadow-md">
               <CldImage
                 src={image.data.public_id}
                 width={400}
@@ -45,11 +40,7 @@ const images = await getCollection("images");
         ))
       }
     </ul>
-  </main>
+  </div>
 </Layout>
 
-<style>
-  body {
-    @apply bg-halloween-black text-halloween-orange;
-  }
-</style>
+<style></style>

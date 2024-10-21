@@ -5,14 +5,17 @@ module.exports = {
     extend: {
       colors: {
         "halloween-orange": "#FF6600",
-        "halloween-purple": "#6B0F9C",
-        "halloween-green": "#44D62C",
-        "halloween-black": "#1C1C1C",
-        "halloween-gray": "#BFBFBF",
+        "halloween-purple": "#660066",
+        "halloween-green": "#00FF00",
+        "halloween-black": "#000000",
+        "halloween-gray": "#333333",
+        "halloween-dark": "#1a1a1a",
       },
       fontFamily: {
-        spooky: ["Creepster", "cursive"],
-        eerie: ["Nosifer", "cursive"],
+        zombie: ["Zombie Brush", "cursive"],
+        gont: ["Gontserrat-Regular", "sans-serif"],
+        gontblack: ["Gontserrat-Black", "sans-serif"],
+        robota: ["Robota", "sans-serif"],
       },
       backgroundImage: {
         "halloween-gradient": "linear-gradient(to right, #FF6600, #6B0F9C)",
