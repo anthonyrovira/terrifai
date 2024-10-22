@@ -1,54 +1,88 @@
-# Astro Starter Kit: Basics
+# TerrifAI - Spooky AI Image Transformation
 
-```sh
-npm create astro@latest -- --template basics
+TerrifAI is a web application that allows users to apply spooky AI-powered transformations to their images. This project was created for the [Cloudinary CloudCreate: Spooky AI Hackathon](https://cloudinary.com/blog/cloudinary-cloudcreate-spooky-ai-hackathon), organized in collaboration with [midudev](https://www.twitch.tv/midudev).
+
+[Insert demonstration images here]
+
+## Features
+
+- Upload and transform images using Cloudinary's AI capabilities
+- Apply various spooky effects:
+  - Replace backgrounds with eerie scenes
+  - Remove or replace elements in the image
+  - Recolor objects with a Halloween-themed palette
+- Interactive image comparison slider
+- Responsive design for desktop and mobile devices
+- Dark mode support
+
+## Technology Stack
+
+- [Astro](https://astro.build/) - Static Site Generator
+- [TypeScript](https://www.typescriptlang.org/) - Programming Language
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [Cloudinary](https://cloudinary.com/) - Cloud-based image and video management
+- [astro-cloudinary](https://github.com/cloudinary-community/astro-cloudinary) - Cloudinary integration for Astro
+
+## Getting Started
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/your-username/terrifai.git
+   cd terrifai
+   ```
+
+2. Install dependencies:
+   ```
+   pnpm install
+   ```
+
+3. Set up your Cloudinary credentials:
+   Create a `.env` file in the root directory and add your Cloudinary credentials:
+   ```
+   CLOUDINARY_CLOUD_NAME=your_cloud_name
+   CLOUDINARY_API_KEY=your_api_key
+   CLOUDINARY_API_SECRET=your_api_secret
+   ```
+
+4. Run the development server:
+   ```
+   pnpm run dev
+   ```
+
+5. Open your browser and navigate to `http://localhost:4321`
+
+## Building for Production
+
+To create a production-ready build:
+```
+pnpm run build
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+The built files will be in the `dist` directory.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Project Structure
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+- `src/pages/` - Astro pages
+- `src/components/` - Reusable Astro components
+- `src/layouts/` - Page layouts
+- `src/styles/` - Global styles
+- `src/scripts/` - TypeScript utility functions
+- `src/content/` - Content collections for Astro
+- `public/` - Static assets
 
-## 🚀 Project Structure
+## Contributing
 
-Inside of your Astro project, you'll see the following folders and files:
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Author
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Anthony Rovira - [LinkedIn](https://www.linkedin.com/in/anthonyrovira/)
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Acknowledgements
 
-Any static assets, like images, can be placed in the `public/` directory.
+- [Cloudinary](https://cloudinary.com/) for hosting the hackathon and providing powerful image transformation capabilities
+- [midudev](https://www.twitch.tv/midudev) for organizing the hackathon and inspiring the developer community
 
-## 🧞 Commands
+## License
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+This project is open source and available under the [MIT License](LICENSE).
