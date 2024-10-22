@@ -4,6 +4,7 @@ import colorPalette from "@utils/colors";
 
 export function setupImageEditor(imageId: string) {
   const preview = document.getElementById("preview") as HTMLImageElement;
+  const loader = document.getElementById("image-loader") as HTMLDivElement;
 
   const removeTarget = document.getElementById("remove-target") as HTMLInputElement;
   const removeShadow = document.getElementById("remove-shadow") as HTMLInputElement;
@@ -54,7 +55,7 @@ export function setupImageEditor(imageId: string) {
     const url = getCldImageUrl({
       src: imageId,
       format: "avif",
-      replaceBackground: `Consider this following prompt but always making sure that the picture is halloween-themed : ${prompt}`,
+      replaceBackground: `${prompt}`,
     });
 
     updatePreview(url);
@@ -119,10 +120,20 @@ export function setupImageEditor(imageId: string) {
   }
 
   function updatePreview(url: string) {
-    preview.style.opacity = ".3";
+    loader.classList.remove("hidden");
+    loader.style.display = "flex";
+    preview.style.opacity = "0";
     preview.src = url;
     preview.onload = () => {
       preview.style.opacity = "1";
+      loader.classList.add("hidden");
+      loader.style.display = "none";
+    };
+    preview.onerror = () => {
+      loader.classList.add("hidden");
+      loader.style.display = "none";
+      console.error("Failed to load the image");
+      // You might want to show an error message to the user here
     };
   }
 }
