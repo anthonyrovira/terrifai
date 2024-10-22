@@ -8,7 +8,7 @@ module.exports = {
         "halloween-purple": "#660066",
         "halloween-green": "#00FF00",
         "halloween-black": "#000000",
-        "halloween-gray": "#333333",
+        "halloween-gray": "#1f2937",
         "halloween-dark": "#1a1a1a",
         "halloween-white": "#ffffff",
       },
