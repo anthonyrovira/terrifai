@@ -2,7 +2,7 @@
 
 TerrifAI is a web application that allows users to apply spooky AI-powered transformations to their images. This project was created for the [Cloudinary CloudCreate: Spooky AI Hackathon](https://cloudinary.com/blog/cloudinary-cloudcreate-spooky-ai-hackathon), organized in collaboration with [midudev](https://www.twitch.tv/midudev).
 
-[Insert demonstration images here]
+![dark mode](dark.png)
 
 ## Features
 
