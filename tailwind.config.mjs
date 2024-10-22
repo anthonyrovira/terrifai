@@ -10,6 +10,7 @@ module.exports = {
         "halloween-black": "#000000",
         "halloween-gray": "#333333",
         "halloween-dark": "#1a1a1a",
+        "halloween-white": "#ffffff",
       },
       fontFamily: {
         zombie: ["Zombie Brush", "cursive"],
@@ -57,4 +58,5 @@ module.exports = {
       addUtilities(newUtilities);
     },
   ],
+  darkMode: ["variant", "&:not(.light *)"],
 };

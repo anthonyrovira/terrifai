@@ -17,11 +17,11 @@ const tabs = [
   <ul class="flex flex-wrap text-sm" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
     {
       tabs.map((tab) => (
-        <li class="flex-1 text-gray-300 border-b-2 border-halloween-orange " role="presentation">
+        <li class="light flex-1 text-gray-300 border-b-2 border-halloween-orange" role="presentation">
           <button
             class:list={[
-              "w-full py-3 px-2 transition-colors duration-200 ease-in-out flex flex-row items-center justify-center tab-button",
-              "text-gray-300 border-b-2 border-halloween-orange hover:text-gray-200 hover:border-halloween-orange",
+              "w-full h-full py-3 px-2 transition-colors duration-200 ease-in-out flex flex-row items-center justify-center tab-button",
+              "light text-gray-300 border-b-2 border-halloween-orange hover:text-gray-200 hover:border-halloween-orange",
             ]}
             id={`${tab.id}-tab`}
             data-tabs-target={`#${tab.id}`}
@@ -31,7 +31,7 @@ const tabs = [
             aria-selected="false"
           >
             <tab.icon class="w-6 h-6 mr-2 hidden md:block" />
-            <span class="text-base text-gray-300">{tab.name}</span>
+            <span class="text-base">{tab.name}</span>
           </button>
         </li>
       ))

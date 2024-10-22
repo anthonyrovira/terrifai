@@ -1,0 +1,46 @@
+---
+import Dark from "@icons/Dark.astro";
+import Github from "@icons/Github.astro";
+import Light from "@icons/Light.astro";
+---
+
+<header class="py-6">
+  <div class="container mx-auto px-4 flex justify-between items-center">
+    <nav>
+      <a href="/" class="hover:text-halloween-purple transition duration-300 hover:saturate-150">
+        <span class="text-halloween-orange font-zombie text-4xl tracking-wider hover:scale-105">Terrif</span><span
+          class="-m-1 text-halloween-purple text-4xl font-robota">AI</span
+        >
+      </a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <a href="https://github.com/anthonyrovira/terrifai" target="_blank" rel="noopener noreferrer">
+        <Github class="w-8 h-8 text-halloween-dark dark:text-halloween-white" />
+      </a>
+      <button id="theme-toggle" type="button" class="text-halloween-orange dark:text-halloween-purple">
+        <Dark class="dark:hidden w-8 h-8 text-halloween-purple dark:text-halloween-orange" />
+        <Light class="hidden dark:inline w-8 h-8 text-halloween-purple dark:text-halloween-orange" />
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const themeToggle = document.getElementById("theme-toggle") as HTMLButtonElement | null;
+  const html = document.documentElement;
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      html.classList.toggle("light");
+      localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
+    });
+  }
+
+  // Check for saved theme preference or use default dark theme
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "light") {
+    html.classList.remove("dark");
+  } else if (savedTheme === "dark" || savedTheme === null) {
+    html.classList.add("dark");
+  }
+</script>

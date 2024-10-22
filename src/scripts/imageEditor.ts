@@ -1,5 +1,4 @@
 import { getCldImageUrl } from "astro-cloudinary/helpers";
-import "two-up-element";
 import colorPalette from "@utils/colors";
 
 export function setupImageEditor(imageId: string) {
@@ -133,7 +132,6 @@ export function setupImageEditor(imageId: string) {
       loader.classList.add("hidden");
       loader.style.display = "none";
       console.error("Failed to load the image");
-      // You might want to show an error message to the user here
     };
   }
 }

@@ -1,5 +1,8 @@
 ---
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
 import "../styles/global.css";
+
 interface Props {
   title: string;
 }
@@ -8,38 +11,25 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="TerrifAI" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/on.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" type="image/png" href="/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg-black text-halloween-orange min-h-screen flex flex-col">
-    <header class="py-6">
-      <div class="container mx-auto px-4">
-        <nav>
-          <a href="/" class="hover:text-halloween-purple transition duration-300 hover:saturate-150">
-            <span class="text-halloween-orange font-zombie text-4xl tracking-wider hover:scale-105">Terrif</span><span
-              class="-m-1 text-halloween-purple text-4xl font-robota">AI</span
-            >
-          </a>
-        </nav>
-      </div>
-    </header>
+  <body class="bg-white dark:bg-halloween-dark text-halloween-orange min-h-screen flex flex-col">
+    <Header />
     <main class="flex-grow">
       <slot />
     </main>
-    <footer class="py-4 mt-4">
-      <div class="container mx-auto px-4 text-center text-sm">
-        <p>
-          &copy; 2024 <span class="font-zombie"> Terrif</span><span class="text-halloween-purple font-robota">AI</span>. All
-          rights reserved.
-        </p>
-      </div>
-    </footer>
+    <Footer />
     <script is:inline src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
   </body>
 </html>
